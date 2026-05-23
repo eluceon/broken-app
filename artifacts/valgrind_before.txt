@@ -1,0 +1,55 @@
+==898885== Memcheck, a memory error detector
+==898885== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==898885== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==898885== Command: ./target/debug/deps/integration-026ab35f4f90faae counts_non_zero_bytes
+==898885== 
+
+running 1 test
+test counts_non_zero_bytes ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 5 filtered out; finished in 0.09s
+
+==898885== 
+==898885== HEAP SUMMARY:
+==898885==     in use at exit: 509 bytes in 3 blocks
+==898885==   total heap usage: 651 allocs, 648 frees, 80,153 bytes allocated
+==898885== 
+==898885== 5 bytes in 1 blocks are definitely lost in loss record 1 of 3
+==898885==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==898885==    by 0x1D8C6F: alloc::raw_vec::RawVecInner<A>::try_allocate_in (in /home/dima/IT/study/rust/rust_blockchain_yandex_practicum/broken-app/broken-app/target/debug/deps/integration-026ab35f4f90faae)
+==898885==    by 0x18E710: alloc::raw_vec::RawVecInner<A>::with_capacity_in (mod.rs:422)
+==898885==    by 0x18B0E6: <T as alloc::slice::<impl [T]>::to_vec_in::ConvertVec>::to_vec (mod.rs:190)
+==898885==    by 0x18B08B: alloc::slice::<impl [T]>::to_vec (slice.rs:398)
+==898885==    by 0x18B23C: broken_app::leak_buffer (lib.rs:23)
+==898885==    by 0x1466AC: integration::counts_non_zero_bytes (integration.rs:13)
+==898885==    by 0x146D96: integration::counts_non_zero_bytes::{{closure}} (integration.rs:11)
+==898885==    by 0x146375: core::ops::function::FnOnce::call_once (function.rs:250)
+==898885==    by 0x1681FA: test::__rust_begin_short_backtrace (function.rs:250)
+==898885==    by 0x17DE54: test::run_test::{{closure}} (lib.rs:686)
+==898885==    by 0x154653: std::sys::backtrace::__rust_begin_short_backtrace (lib.rs:637)
+==898885== 
+==898885== 48 bytes in 1 blocks are possibly lost in loss record 2 of 3
+==898885==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==898885==    by 0x1B10B3: std::thread::Thread::new (alloc.rs:94)
+==898885==    by 0x1B14AF: std::thread::current::init_current (current.rs:241)
+==898885==    by 0x1AEAE5: std::sync::mpmc::context::Context::new (current.rs:198)
+==898885==    by 0x15449A: std::sys::thread_local::native::lazy::Storage<T,D>::get_or_init_slow (context.rs:43)
+==898885==    by 0x155AE2: std::sync::mpmc::list::Channel<T>::recv (lazy.rs:60)
+==898885==    by 0x17531E: test::console::run_tests_console (mod.rs:1119)
+==898885==    by 0x17F375: test::test_main (lib.rs:160)
+==898885==    by 0x167E7A: test::test_main_static (lib.rs:183)
+==898885==    by 0x146922: integration::main (integration.rs:0)
+==898885==    by 0x14621A: core::ops::function::FnOnce::call_once (function.rs:250)
+==898885==    by 0x146EFD: std::sys::backtrace::__rust_begin_short_backtrace (backtrace.rs:158)
+==898885== 
+==898885== LEAK SUMMARY:
+==898885==    definitely lost: 5 bytes in 1 blocks
+==898885==    indirectly lost: 0 bytes in 0 blocks
+==898885==      possibly lost: 48 bytes in 1 blocks
+==898885==    still reachable: 456 bytes in 1 blocks
+==898885==         suppressed: 0 bytes in 0 blocks
+==898885== Reachable blocks (those to which a pointer was found) are not shown.
+==898885== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==898885== 
+==898885== For lists of detected and suppressed errors, rerun with: -s
+==898885== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
