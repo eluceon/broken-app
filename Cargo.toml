@@ -8,6 +8,9 @@ edition = "2024"
 [dev-dependencies]
 criterion = "0.5"
 
+[profile.release]
+debug = 1
+
 [[bench]]
 name = "baseline"
 harness = false
