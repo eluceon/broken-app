@@ -1,0 +1,60 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+addr2line /home/dima/.debug/.build-id/2b/148d1a35500bd516a77e1a965915303341f438/elf: could not read first record
+addr2line /home/dima/.debug/.build-id/2b/148d1a35500bd516a77e1a965915303341f438/elf: could not read first record
+Warning:
+Kernel address maps (/proc/{kallsyms,modules}) were restricted.
+
+Check /proc/sys/kernel/kptr_restrict before running 'perf record'.
+
+As no suitable kallsyms nor vmlinux was found, kernel samples
+can't be resolved.
+
+Samples in kernel modules can't be resolved as well.
+
+#
+# Total Lost Samples: 0
+#
+# Samples: 43  of event 'cycles:P'
+# Event count (approx.): 92524604
+#
+# Children      Self  Command        Shared Object     Symbol                                                                                         
+# ........  ........  .............  ................  ...............................................................................................
+#
+    99.92%     0.00%  profile_heavy  profile_heavy     [.] _start
+            |
+            ---_start
+               __libc_start_main_impl (inlined)
+               __libc_start_call_main
+               main
+               std::rt::lang_start_internal
+               |          
+               |--98.61%--std::rt::lang_start::_$u7b$$u7b$closure$u7d$$u7d$::h7b393d4d9497e861
+               |          std::sys::backtrace::__rust_begin_short_backtrace
+               |          core::ops::function::FnOnce::call_once (inlined)
+               |          profile_heavy::main
+               |          |          
+               |          |--84.77%--broken_app::algo::slow_dedup
+               |          |          |          
+               |          |           --83.22%--std::collections::hash::set::HashSet<T,S>::insert (inlined)
+               |          |                     hashbrown::set::HashSet<T,S,A>::insert (inlined)
+               |          |                     |          
+               |          |                     |--54.91%--broken_app::algo::slow_dedup
+               |          |                     |          
+               |          |                      --28.31%--hashbrown::map::HashMap<K,V,S,A>::insert (inlined)
+               |          |                                |          
+               |          |                                |--20.45%--hashbrown::map::HashMap<K,V,S,A>::find_or_find_insert_slot (inlined)
+               |          |                                |          hashbrown::raw::RawTable<T,A>::find_or_find_insert_slot (inlined)
+               |          |                                |          |          
+               |          |                                |          |--17.36%--hashbrown::raw::RawTableInner::find_or_find_insert_slot_inner (inlined)
+               |          |                                |          |          |          
+               |          |                                |          |          |--11.56%--hashbrown::control::tag::Tag::full (inlined)
+               |          |                                |          |          |          
+               |          |                                |          |          |--3.62%--core::option::Option<T>::is_none (inlined)
+               |          |                                |          |          |          core::option::Option<T>::is_some (inlined)
+               |          |                                |          |          |          
+               |          |                                |          |           --2.18%--hashbrown::raw::RawTableInner::find_insert_slot_in_group (inlined)
+               |          |                                |          |                     hashbrown::control::bitmask::BitMask::lowest_set_bit (inlined)
+               |          |                                |          |          
+               |          |                                |          |--1.58%--hashbrown::raw::RawTable<T,A>::reserve (inlined)
+               |          |                                |          |          core::intrinsics::unlikely (inlined)

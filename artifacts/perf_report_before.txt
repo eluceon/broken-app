@@ -1,0 +1,120 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+addr2line /home/dima/.debug/.build-id/91/abc5218f8fc29210b44f42a61be968c3617403/elf: could not read first record
+Warning:
+Kernel address maps (/proc/{kallsyms,modules}) were restricted.
+
+Check /proc/sys/kernel/kptr_restrict before running 'perf record'.
+
+As no suitable kallsyms nor vmlinux was found, kernel samples
+can't be resolved.
+
+Samples in kernel modules can't be resolved as well.
+
+#
+# Total Lost Samples: 0
+#
+# Samples: 7K of event 'cycles:P'
+# Event count (approx.): 29550627030
+#
+# Children      Self  Command        Shared Object         Symbol                                                                                         
+# ........  ........  .............  ....................  ...............................................................................................
+#
+    73.70%    73.14%  profile_heavy  profile_heavy         [.] broken_app::algo::slow_fib
+            |          
+            |--37.87%--_start
+            |          __libc_start_main_impl (inlined)
+            |          __libc_start_call_main
+            |          main
+            |          std::rt::lang_start_internal
+            |          std::rt::lang_start::_$u7b$$u7b$closure$u7d$$u7d$::h7b393d4d9497e861
+            |          std::sys::backtrace::__rust_begin_short_backtrace
+            |          core::ops::function::FnOnce::call_once (inlined)
+            |          profile_heavy::main
+            |          broken_app::algo::slow_fib
+            |          broken_app::algo::slow_fib
+            |          broken_app::algo::slow_fib
+            |          broken_app::algo::slow_fib
+            |          broken_app::algo::slow_fib
+            |          |          
+            |           --37.84%--broken_app::algo::slow_fib
+            |                     |          
+            |                      --37.79%--broken_app::algo::slow_fib
+            |                                |          
+            |                                 --37.60%--broken_app::algo::slow_fib
+            |                                           |          
+            |                                            --37.29%--broken_app::algo::slow_fib
+            |                                                      |          
+            |                                                       --36.64%--broken_app::algo::slow_fib
+            |                                                                 |          
+            |                                                                 |--35.56%--broken_app::algo::slow_fib
+            |                                                                 |          |          
+            |                                                                 |          |--33.59%--broken_app::algo::slow_fib
+            |                                                                 |          |          |          
+            |                                                                 |          |          |--31.82%--broken_app::algo::slow_fib
+            |                                                                 |          |          |          |          
+            |                                                                 |          |          |          |--28.12%--broken_app::algo::slow_fib
+            |                                                                 |          |          |          |          |          
+            |                                                                 |          |          |          |          |--25.27%--broken_app::algo::slow_fib
+            |                                                                 |          |          |          |          |          |          
+            |                                                                 |          |          |          |          |          |--20.19%--broken_app::algo::slow_fib
+            |                                                                 |          |          |          |          |          |          |          
+            |                                                                 |          |          |          |          |          |          |--16.98%--broken_app::algo::slow_fib
+            |                                                                 |          |          |          |          |          |          |          |          
+            |                                                                 |          |          |          |          |          |          |          |--11.83%--broken_app::algo::slow_fib
+            |                                                                 |          |          |          |          |          |          |          |          |          
+            |                                                                 |          |          |          |          |          |          |          |          |--9.67%--broken_app::algo::slow_fib
+            |                                                                 |          |          |          |          |          |          |          |          |          |          
+            |                                                                 |          |          |          |          |          |          |          |          |          |--5.73%--broken_app::algo::slow_fib
+            |                                                                 |          |          |          |          |          |          |          |          |          |          |          
+            |                                                                 |          |          |          |          |          |          |          |          |          |          |--4.04%--broken_app::algo::slow_fib
+            |                                                                 |          |          |          |          |          |          |          |          |          |          |          |          
+            |                                                                 |          |          |          |          |          |          |          |          |          |          |           --1.96%--broken_app::algo::slow_fib
+            |                                                                 |          |          |          |          |          |          |          |          |          |          |                     |          
+            |                                                                 |          |          |          |          |          |          |          |          |          |          |                      --1.40%--broken_app::algo::slow_fib
+            |                                                                 |          |          |          |          |          |          |          |          |          |          |                                |          
+            |                                                                 |          |          |          |          |          |          |          |          |          |          |                                 --0.59%--broken_app::algo::slow_fib
+            |                                                                 |          |          |          |          |          |          |          |          |          |          |          
+            |                                                                 |          |          |          |          |          |          |          |          |          |           --0.60%--0x58ab457da75f
+            |                                                                 |          |          |          |          |          |          |          |          |          |                     broken_app::algo::slow_fib
+            |                                                                 |          |          |          |          |          |          |          |          |          |          
+            |                                                                 |          |          |          |          |          |          |          |          |           --0.81%--0x58ab457da75f
+            |                                                                 |          |          |          |          |          |          |          |          |                     broken_app::algo::slow_fib
+            |                                                                 |          |          |          |          |          |          |          |          |          
+            |                                                                 |          |          |          |          |          |          |          |           --0.87%--0x58ab457da75f
+            |                                                                 |          |          |          |          |          |          |          |                     broken_app::algo::slow_fib
+            |                                                                 |          |          |          |          |          |          |          |          
+            |                                                                 |          |          |          |          |          |          |           --1.43%--0x58ab457da75f
+            |                                                                 |          |          |          |          |          |          |                     broken_app::algo::slow_fib
+            |                                                                 |          |          |          |          |          |          |          
+            |                                                                 |          |          |          |          |          |           --1.51%--0x58ab457da75f
+            |                                                                 |          |          |          |          |          |                     broken_app::algo::slow_fib
+            |                                                                 |          |          |          |          |          |          
+            |                                                                 |          |          |          |          |           --1.74%--0x58ab457da75f
+            |                                                                 |          |          |          |          |                     broken_app::algo::slow_fib
+            |                                                                 |          |          |          |          |          
+            |                                                                 |          |          |          |           --1.41%--0x58ab457da75f
+            |                                                                 |          |          |          |                     broken_app::algo::slow_fib
+            |                                                                 |          |          |          |          
+            |                                                                 |          |          |           --1.56%--0x58ab457da75f
+            |                                                                 |          |          |                     broken_app::algo::slow_fib
+            |                                                                 |          |          |          
+            |                                                                 |          |           --1.01%--0x58ab457da75f
+            |                                                                 |          |                     broken_app::algo::slow_fib
+            |                                                                 |          |          
+            |                                                                 |           --1.00%--0x58ab457da75f
+            |                                                                 |                     broken_app::algo::slow_fib
+            |                                                                 |          
+            |                                                                  --0.59%--0x58ab457da75f
+            |                                                                            broken_app::algo::slow_fib
+            |          
+            |--9.81%--0x2
+            |          broken_app::algo::slow_fib
+            |          
+            |--8.94%--0xffffffffffffffff
+            |          broken_app::algo::slow_fib
+            |          
+            |--5.80%--0x4
+            |          broken_app::algo::slow_fib
+            |          
+            |--2.86%--0x6
