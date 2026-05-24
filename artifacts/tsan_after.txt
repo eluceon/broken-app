@@ -1,0 +1,158 @@
+   Compiling broken-app v0.1.0 (/home/dima/IT/study/rust/rust_blockchain_yandex_practicum/broken-app/broken-app)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.48s
+     Running unittests src/lib.rs (target/debug/deps/broken_app-b8ced2f718b40870)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/bin/demo.rs (target/debug/deps/demo-acfec1816d8f5cea)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/bin/profile_heavy.rs (target/debug/deps/profile_heavy-e385710730747382)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/integration.rs (target/debug/deps/integration-75cf6fdb041172f9)
+
+running 18 tests
+test average_positive_all_negative ... ==================
+WARNING: ThreadSanitizer: data race (pid=1056412)
+  Read of size 8 at 0x729400000010 by main thread:
+    #0 memcpy /rustc/llvm/src/llvm-project/compiler-rt/lib/tsan/rtl/../../sanitizer_common/sanitizer_common_interceptors_memintrinsics.inc:117:5 (integration-75cf6fdb041172f9+0x76cfe) (BuildId: 50c767185d6af5e9be3bb564fe90f03643790a67)
+    #1 core::ptr::read::h67576077d17db22c /rustc/25d319a0f656ee8faa7a534da299e76e96068a40/library/core/src/ptr/mod.rs:1744:9 (integration-75cf6fdb041172f9+0x118a80) (BuildId: 50c767185d6af5e9be3bb564fe90f03643790a67)
+    #2 core::ptr::mut_ptr::_$LT$impl$u20$$BP$mut$u20$T$GT$::read::h483e0b58bad45a08 /rustc/25d319a0f656ee8faa7a534da299e76e96068a40/library/core/src/ptr/mut_ptr.rs:1263:18 (integration-75cf6fdb041172f9+0x118a80)
+    #3 std::sync::mpmc::list::Channel$LT$T$GT$::read::h40d9505934f897bd /rustc/25d319a0f656ee8faa7a534da299e76e96068a40/library/std/src/sync/mpmc/list.rs:381:38 (integration-75cf6fdb041172f9+0x118a80)
+    #4 std::sync::mpmc::list::Channel$LT$T$GT$::recv::h5cd28079572be7c2 /rustc/25d319a0f656ee8faa7a534da299e76e96068a40/library/std/src/sync/mpmc/list.rs:431:33 (integration-75cf6fdb041172f9+0x118a80)
+    #5 core::ops::function::FnOnce::call_once::hf82106160e31d155 /home/dima/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ops/function.rs:250:5 (integration-75cf6fdb041172f9+0x1074be) (BuildId: 50c767185d6af5e9be3bb564fe90f03643790a67)
+    #6 std::sys::backtrace::__rust_begin_short_backtrace::h400cd870e95a33a0 /home/dima/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/sys/backtrace.rs:158:18 (integration-75cf6fdb041172f9+0x105481) (BuildId: 50c767185d6af5e9be3bb564fe90f03643790a67)
+    #7 std::rt::lang_start::_$u7b$$u7b$closure$u7d$$u7d$::h3892ddb13de4fc90 /home/dima/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/rt.rs:206:18 (integration-75cf6fdb041172f9+0x107c3e) (BuildId: 50c767185d6af5e9be3bb564fe90f03643790a67)
+    #8 core::ops::function::impls::_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$::call_once::h19d6dd3daebed2ea /rustc/25d319a0f656ee8faa7a534da299e76e96068a40/library/core/src/ops/function.rs:287:21 (integration-75cf6fdb041172f9+0x17b0ef) (BuildId: 50c767185d6af5e9be3bb564fe90f03643790a67)
+    #9 std::panicking::catch_unwind::do_call::hd89363156ad4b386 /rustc/25d319a0f656ee8faa7a534da299e76e96068a40/library/std/src/panicking.rs:582:40 (integration-75cf6fdb041172f9+0x17b0ef)
+    #10 std::panicking::catch_unwind::hf600dc30ff923888 /rustc/25d319a0f656ee8faa7a534da299e76e96068a40/library/std/src/panicking.rs:545:19 (integration-75cf6fdb041172f9+0x17b0ef)
+    #11 std::panic::catch_unwind::h9082610fc226a70b /rustc/25d319a0f656ee8faa7a534da299e76e96068a40/library/std/src/panic.rs:359:14 (integration-75cf6fdb041172f9+0x17b0ef)
+    #12 std::rt::lang_start_internal::_$u7b$$u7b$closure$u7d$$u7d$::h867f3f05e1077096 /rustc/25d319a0f656ee8faa7a534da299e76e96068a40/library/std/src/rt.rs:175:24 (integration-75cf6fdb041172f9+0x17b0ef)
+    #13 std::panicking::catch_unwind::do_call::h416ce2837d0911ac /rustc/25d319a0f656ee8faa7a534da299e76e96068a40/library/std/src/panicking.rs:582:40 (integration-75cf6fdb041172f9+0x17b0ef)
+    #14 std::panicking::catch_unwind::hf85dcdb82700acf9 /rustc/25d319a0f656ee8faa7a534da299e76e96068a40/library/std/src/panicking.rs:545:19 (integration-75cf6fdb041172f9+0x17b0ef)
+    #15 std::panic::catch_unwind::hd42cad7a02b609e2 /rustc/25d319a0f656ee8faa7a534da299e76e96068a40/library/std/src/panic.rs:359:14 (integration-75cf6fdb041172f9+0x17b0ef)
+    #16 std::rt::lang_start_internal::h5c3622401d53bd6b /rustc/25d319a0f656ee8faa7a534da299e76e96068a40/library/std/src/rt.rs:171:5 (integration-75cf6fdb041172f9+0x17b0ef)
+    #17 main <null> (integration-75cf6fdb041172f9+0x109909) (BuildId: 50c767185d6af5e9be3bb564fe90f03643790a67)
+
+  Previous write of size 8 at 0x729400000010 by thread T1:
+    #0 memcpy /rustc/llvm/src/llvm-project/compiler-rt/lib/tsan/rtl/../../sanitizer_common/sanitizer_common_interceptors_memintrinsics.inc:117:5 (integration-75cf6fdb041172f9+0x76cfe) (BuildId: 50c767185d6af5e9be3bb564fe90f03643790a67)
+    #1 core::ptr::write::h95e421d7514908f9 /rustc/25d319a0f656ee8faa7a534da299e76e96068a40/library/core/src/ptr/mod.rs:1944:9 (integration-75cf6fdb041172f9+0x118086) (BuildId: 50c767185d6af5e9be3bb564fe90f03643790a67)
+    #2 core::ptr::mut_ptr::_$LT$impl$u20$$BP$mut$u20$T$GT$::write::h247a21df1ac6d7d7 /rustc/25d319a0f656ee8faa7a534da299e76e96068a40/library/core/src/ptr/mut_ptr.rs:1418:18 (integration-75cf6fdb041172f9+0x118086)
+    #3 std::sync::mpmc::list::Channel$LT$T$GT$::write::h3689e421a519dcdb /rustc/25d319a0f656ee8faa7a534da299e76e96068a40/library/std/src/sync/mpmc/list.rs:274:28 (integration-75cf6fdb041172f9+0x118086)
+    #4 std::sync::mpmc::list::Channel$LT$T$GT$::send::h53ca92b5dd89b0d0 /rustc/25d319a0f656ee8faa7a534da299e76e96068a40/library/std/src/sync/mpmc/list.rs:411:23 (integration-75cf6fdb041172f9+0x118086)
+    #5 std::sync::mpmc::Sender$LT$T$GT$::send::h45147a47a7708174 /rustc/25d319a0f656ee8faa7a534da299e76e96068a40/library/std/src/sync/mpmc/mod.rs:395:46 (integration-75cf6fdb041172f9+0x118086)
+
+  Location is heap block of size 9680 at 0x729400000000 allocated by thread T1:
+    #0 calloc /rustc/llvm/src/llvm-project/compiler-rt/lib/tsan/rtl/tsan_interceptors_posix.cpp:704:5 (integration-75cf6fdb041172f9+0x79c97) (BuildId: 50c767185d6af5e9be3bb564fe90f03643790a67)
+    #1 alloc::alloc::alloc_zeroed::h7da1026a984f9014 /rustc/25d319a0f656ee8faa7a534da299e76e96068a40/library/alloc/src/alloc.rs:178:9 (integration-75cf6fdb041172f9+0x117f60) (BuildId: 50c767185d6af5e9be3bb564fe90f03643790a67)
+    #2 alloc::alloc::Global::alloc_impl::h5801214b4cd1606e /rustc/25d319a0f656ee8faa7a534da299e76e96068a40/library/alloc/src/alloc.rs:190:43 (integration-75cf6fdb041172f9+0x117f60)
+    #3 _$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$::allocate_zeroed::h59d47a0eb3b01bce /rustc/25d319a0f656ee8faa7a534da299e76e96068a40/library/alloc/src/alloc.rs:257:14 (integration-75cf6fdb041172f9+0x117f60)
+    #4 alloc::boxed::Box$LT$T$C$A$GT$::try_new_zeroed_in::h83792ca2eec9ed7b /rustc/25d319a0f656ee8faa7a534da299e76e96068a40/library/alloc/src/boxed.rs:655:19 (integration-75cf6fdb041172f9+0x117f60)
+    #5 alloc::boxed::Box$LT$T$C$A$GT$::new_zeroed_in::h6fa456e30dc73278 /rustc/25d319a0f656ee8faa7a534da299e76e96068a40/library/alloc/src/boxed.rs:618:15 (integration-75cf6fdb041172f9+0x117f60)
+    #6 alloc::boxed::Box$LT$T$GT$::new_zeroed::h973526f2345406ac /rustc/25d319a0f656ee8faa7a534da299e76e96068a40/library/alloc/src/boxed.rs:310:9 (integration-75cf6fdb041172f9+0x117f60)
+    #7 std::sync::mpmc::list::Block$LT$T$GT$::new::h550ccd5896ba50b9 /rustc/25d319a0f656ee8faa7a534da299e76e96068a40/library/std/src/sync/mpmc/list.rs:73:18 (integration-75cf6fdb041172f9+0x117f60)
+    #8 std::sync::mpmc::list::Channel$LT$T$GT$::start_send::h2cab0006698c0f79 /rustc/25d319a0f656ee8faa7a534da299e76e96068a40/library/std/src/sync/mpmc/list.rs:208:41 (integration-75cf6fdb041172f9+0x117f60)
+    #9 std::sync::mpmc::list::Channel$LT$T$GT$::send::h53ca92b5dd89b0d0 /rustc/25d319a0f656ee8faa7a534da299e76e96068a40/library/std/src/sync/mpmc/list.rs:410:22 (integration-75cf6fdb041172f9+0x117f60)
+    #10 std::sync::mpmc::Sender$LT$T$GT$::send::h45147a47a7708174 /rustc/25d319a0f656ee8faa7a534da299e76e96068a40/library/std/src/sync/mpmc/mod.rs:395:46 (integration-75cf6fdb041172f9+0x117f60)
+
+  Thread T1 'average_positiv' (tid=1056414, finished) created by main thread at:
+    #0 pthread_create /rustc/llvm/src/llvm-project/compiler-rt/lib/tsan/rtl/tsan_interceptors_posix.cpp:1090:3 (integration-75cf6fdb041172f9+0x7b7ea) (BuildId: 50c767185d6af5e9be3bb564fe90f03643790a67)
+    #1 std::sys::thread::unix::Thread::new::h7c969cc1b38c304d /rustc/25d319a0f656ee8faa7a534da299e76e96068a40/library/std/src/sys/thread/unix.rs:107:19 (integration-75cf6fdb041172f9+0x180a03) (BuildId: 50c767185d6af5e9be3bb564fe90f03643790a67)
+    #2 core::ops::function::FnOnce::call_once::hf82106160e31d155 /home/dima/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ops/function.rs:250:5 (integration-75cf6fdb041172f9+0x1074be) (BuildId: 50c767185d6af5e9be3bb564fe90f03643790a67)
+    #3 std::sys::backtrace::__rust_begin_short_backtrace::h400cd870e95a33a0 /home/dima/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/sys/backtrace.rs:158:18 (integration-75cf6fdb041172f9+0x105481) (BuildId: 50c767185d6af5e9be3bb564fe90f03643790a67)
+    #4 std::rt::lang_start::_$u7b$$u7b$closure$u7d$$u7d$::h3892ddb13de4fc90 /home/dima/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/rt.rs:206:18 (integration-75cf6fdb041172f9+0x107c3e) (BuildId: 50c767185d6af5e9be3bb564fe90f03643790a67)
+    #5 core::ops::function::impls::_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$::call_once::h19d6dd3daebed2ea /rustc/25d319a0f656ee8faa7a534da299e76e96068a40/library/core/src/ops/function.rs:287:21 (integration-75cf6fdb041172f9+0x17b0ef) (BuildId: 50c767185d6af5e9be3bb564fe90f03643790a67)
+    #6 std::panicking::catch_unwind::do_call::hd89363156ad4b386 /rustc/25d319a0f656ee8faa7a534da299e76e96068a40/library/std/src/panicking.rs:582:40 (integration-75cf6fdb041172f9+0x17b0ef)
+    #7 std::panicking::catch_unwind::hf600dc30ff923888 /rustc/25d319a0f656ee8faa7a534da299e76e96068a40/library/std/src/panicking.rs:545:19 (integration-75cf6fdb041172f9+0x17b0ef)
+    #8 std::panic::catch_unwind::h9082610fc226a70b /rustc/25d319a0f656ee8faa7a534da299e76e96068a40/library/std/src/panic.rs:359:14 (integration-75cf6fdb041172f9+0x17b0ef)
+    #9 std::rt::lang_start_internal::_$u7b$$u7b$closure$u7d$$u7d$::h867f3f05e1077096 /rustc/25d319a0f656ee8faa7a534da299e76e96068a40/library/std/src/rt.rs:175:24 (integration-75cf6fdb041172f9+0x17b0ef)
+    #10 std::panicking::catch_unwind::do_call::h416ce2837d0911ac /rustc/25d319a0f656ee8faa7a534da299e76e96068a40/library/std/src/panicking.rs:582:40 (integration-75cf6fdb041172f9+0x17b0ef)
+    #11 std::panicking::catch_unwind::hf85dcdb82700acf9 /rustc/25d319a0f656ee8faa7a534da299e76e96068a40/library/std/src/panicking.rs:545:19 (integration-75cf6fdb041172f9+0x17b0ef)
+    #12 std::panic::catch_unwind::hd42cad7a02b609e2 /rustc/25d319a0f656ee8faa7a534da299e76e96068a40/library/std/src/panic.rs:359:14 (integration-75cf6fdb041172f9+0x17b0ef)
+    #13 std::rt::lang_start_internal::h5c3622401d53bd6b /rustc/25d319a0f656ee8faa7a534da299e76e96068a40/library/std/src/rt.rs:171:5 (integration-75cf6fdb041172f9+0x17b0ef)
+    #14 main <null> (integration-75cf6fdb041172f9+0x109909) (BuildId: 50c767185d6af5e9be3bb564fe90f03643790a67)
+
+SUMMARY: ThreadSanitizer: data race /rustc/25d319a0f656ee8faa7a534da299e76e96068a40/library/core/src/ptr/mod.rs:1744:9 in core::ptr::read::h67576077d17db22c
+==================
+ok
+test average_positive_empty ... ok
+test average_positive_single ... ok
+test averages_only_positive ... ok
+test counts_non_zero_bytes ... ok
+test dedup_preserves_uniques ... ok
+test fib_small_numbers ... ok
+test leak_buffer_all_zeros ... ok
+test leak_buffer_empty ... ok
+test normalize_multiple_spaces_inside ... ok
+test normalize_simple ... ok
+test normalize_tabs_and_newlines ... ok
+test normalize_unicode_whitespace ... ok
+test race_increment_is_correct ... ok
+test sum_even_all_odd ... ok
+test sum_even_boundary ... ok
+test sum_even_empty ... ==================
+WARNING: ThreadSanitizer: data race (pid=1056412)
+  Write of size 8 at 0x7244000016a0 by main thread:
+    #0 free /rustc/llvm/src/llvm-project/compiler-rt/lib/tsan/rtl/tsan_interceptors_posix.cpp:747:3 (integration-75cf6fdb041172f9+0x7a43a) (BuildId: 50c767185d6af5e9be3bb564fe90f03643790a67)
+    #1 _$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$::drop::h116d068168ea2dc9 /rustc/25d319a0f656ee8faa7a534da299e76e96068a40/library/alloc/src/sync.rs:2770:18 (integration-75cf6fdb041172f9+0x13c63f) (BuildId: 50c767185d6af5e9be3bb564fe90f03643790a67)
+    #2 core::ptr::drop_in_place$LT$alloc..sync..Arc$LT$std..sync..poison..mutex..Mutex$LT$core..option..Option$LT$test..run_test..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$::h14336d7595f91cf4 /rustc/25d319a0f656ee8faa7a534da299e76e96068a40/library/core/src/ptr/mod.rs:805:1 (integration-75cf6fdb041172f9+0x13c63f)
+    #3 test::run_test::h70fbeff4c75b4d34 /rustc/25d319a0f656ee8faa7a534da299e76e96068a40/library/test/src/lib.rs:647:13 (integration-75cf6fdb041172f9+0x13c63f)
+    #4 core::ops::function::FnOnce::call_once::hf82106160e31d155 /home/dima/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ops/function.rs:250:5 (integration-75cf6fdb041172f9+0x1074be) (BuildId: 50c767185d6af5e9be3bb564fe90f03643790a67)
+    #5 std::sys::backtrace::__rust_begin_short_backtrace::h400cd870e95a33a0 /home/dima/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/sys/backtrace.rs:158:18 (integration-75cf6fdb041172f9+0x105481) (BuildId: 50c767185d6af5e9be3bb564fe90f03643790a67)
+    #6 std::rt::lang_start::_$u7b$$u7b$closure$u7d$$u7d$::h3892ddb13de4fc90 /home/dima/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/rt.rs:206:18 (integration-75cf6fdb041172f9+0x107c3e) (BuildId: 50c767185d6af5e9be3bb564fe90f03643790a67)
+    #7 core::ops::function::impls::_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$::call_once::h19d6dd3daebed2ea /rustc/25d319a0f656ee8faa7a534da299e76e96068a40/library/core/src/ops/function.rs:287:21 (integration-75cf6fdb041172f9+0x17b0ef) (BuildId: 50c767185d6af5e9be3bb564fe90f03643790a67)
+    #8 std::panicking::catch_unwind::do_call::hd89363156ad4b386 /rustc/25d319a0f656ee8faa7a534da299e76e96068a40/library/std/src/panicking.rs:582:40 (integration-75cf6fdb041172f9+0x17b0ef)
+    #9 std::panicking::catch_unwind::hf600dc30ff923888 /rustc/25d319a0f656ee8faa7a534da299e76e96068a40/library/std/src/panicking.rs:545:19 (integration-75cf6fdb041172f9+0x17b0ef)
+    #10 std::panic::catch_unwind::h9082610fc226a70b /rustc/25d319a0f656ee8faa7a534da299e76e96068a40/library/std/src/panic.rs:359:14 (integration-75cf6fdb041172f9+0x17b0ef)
+    #11 std::rt::lang_start_internal::_$u7b$$u7b$closure$u7d$$u7d$::h867f3f05e1077096 /rustc/25d319a0f656ee8faa7a534da299e76e96068a40/library/std/src/rt.rs:175:24 (integration-75cf6fdb041172f9+0x17b0ef)
+    #12 std::panicking::catch_unwind::do_call::h416ce2837d0911ac /rustc/25d319a0f656ee8faa7a534da299e76e96068a40/library/std/src/panicking.rs:582:40 (integration-75cf6fdb041172f9+0x17b0ef)
+    #13 std::panicking::catch_unwind::hf85dcdb82700acf9 /rustc/25d319a0f656ee8faa7a534da299e76e96068a40/library/std/src/panicking.rs:545:19 (integration-75cf6fdb041172f9+0x17b0ef)
+    #14 std::panic::catch_unwind::hd42cad7a02b609e2 /rustc/25d319a0f656ee8faa7a534da299e76e96068a40/library/std/src/panic.rs:359:14 (integration-75cf6fdb041172f9+0x17b0ef)
+    #15 std::rt::lang_start_internal::h5c3622401d53bd6b /rustc/25d319a0f656ee8faa7a534da299e76e96068a40/library/std/src/rt.rs:171:5 (integration-75cf6fdb041172f9+0x17b0ef)
+    #16 main <null> (integration-75cf6fdb041172f9+0x109909) (BuildId: 50c767185d6af5e9be3bb564fe90f03643790a67)
+
+  Previous read of size 8 at 0x7244000016a0 by thread T21:
+    #0 memcpy /rustc/llvm/src/llvm-project/compiler-rt/lib/tsan/rtl/../../sanitizer_common/sanitizer_common_interceptors_memintrinsics.inc:117:5 (integration-75cf6fdb041172f9+0x76cfe) (BuildId: 50c767185d6af5e9be3bb564fe90f03643790a67)
+    #1 core::option::Option$LT$T$GT$::unwrap::h205109fb304fd7a1 /rustc/25d319a0f656ee8faa7a534da299e76e96068a40/library/core/src/option.rs:1015:18 (integration-75cf6fdb041172f9+0x117477) (BuildId: 50c767185d6af5e9be3bb564fe90f03643790a67)
+    #2 test::run_test::_$u7b$$u7b$closure$u7d$$u7d$::h6e7953c2f1e8c8f8 /rustc/25d319a0f656ee8faa7a534da299e76e96068a40/library/test/src/lib.rs:637:73 (integration-75cf6fdb041172f9+0x117477)
+    #3 std::sys::backtrace::__rust_begin_short_backtrace::he0d8cf052d1f0ed1 /rustc/25d319a0f656ee8faa7a534da299e76e96068a40/library/std/src/sys/backtrace.rs:158:18 (integration-75cf6fdb041172f9+0x117477)
+
+  Thread T21 'sum_even_empty' (tid=1056435, running) created by main thread at:
+    #0 pthread_create /rustc/llvm/src/llvm-project/compiler-rt/lib/tsan/rtl/tsan_interceptors_posix.cpp:1090:3 (integration-75cf6fdb041172f9+0x7b7ea) (BuildId: 50c767185d6af5e9be3bb564fe90f03643790a67)
+    #1 std::sys::thread::unix::Thread::new::h7c969cc1b38c304d /rustc/25d319a0f656ee8faa7a534da299e76e96068a40/library/std/src/sys/thread/unix.rs:107:19 (integration-75cf6fdb041172f9+0x180a03) (BuildId: 50c767185d6af5e9be3bb564fe90f03643790a67)
+    #2 core::ops::function::FnOnce::call_once::hf82106160e31d155 /home/dima/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ops/function.rs:250:5 (integration-75cf6fdb041172f9+0x1074be) (BuildId: 50c767185d6af5e9be3bb564fe90f03643790a67)
+    #3 std::sys::backtrace::__rust_begin_short_backtrace::h400cd870e95a33a0 /home/dima/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/sys/backtrace.rs:158:18 (integration-75cf6fdb041172f9+0x105481) (BuildId: 50c767185d6af5e9be3bb564fe90f03643790a67)
+    #4 std::rt::lang_start::_$u7b$$u7b$closure$u7d$$u7d$::h3892ddb13de4fc90 /home/dima/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std/src/rt.rs:206:18 (integration-75cf6fdb041172f9+0x107c3e) (BuildId: 50c767185d6af5e9be3bb564fe90f03643790a67)
+    #5 core::ops::function::impls::_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$::call_once::h19d6dd3daebed2ea /rustc/25d319a0f656ee8faa7a534da299e76e96068a40/library/core/src/ops/function.rs:287:21 (integration-75cf6fdb041172f9+0x17b0ef) (BuildId: 50c767185d6af5e9be3bb564fe90f03643790a67)
+    #6 std::panicking::catch_unwind::do_call::hd89363156ad4b386 /rustc/25d319a0f656ee8faa7a534da299e76e96068a40/library/std/src/panicking.rs:582:40 (integration-75cf6fdb041172f9+0x17b0ef)
+    #7 std::panicking::catch_unwind::hf600dc30ff923888 /rustc/25d319a0f656ee8faa7a534da299e76e96068a40/library/std/src/panicking.rs:545:19 (integration-75cf6fdb041172f9+0x17b0ef)
+    #8 std::panic::catch_unwind::h9082610fc226a70b /rustc/25d319a0f656ee8faa7a534da299e76e96068a40/library/std/src/panic.rs:359:14 (integration-75cf6fdb041172f9+0x17b0ef)
+    #9 std::rt::lang_start_internal::_$u7b$$u7b$closure$u7d$$u7d$::h867f3f05e1077096 /rustc/25d319a0f656ee8faa7a534da299e76e96068a40/library/std/src/rt.rs:175:24 (integration-75cf6fdb041172f9+0x17b0ef)
+    #10 std::panicking::catch_unwind::do_call::h416ce2837d0911ac /rustc/25d319a0f656ee8faa7a534da299e76e96068a40/library/std/src/panicking.rs:582:40 (integration-75cf6fdb041172f9+0x17b0ef)
+    #11 std::panicking::catch_unwind::hf85dcdb82700acf9 /rustc/25d319a0f656ee8faa7a534da299e76e96068a40/library/std/src/panicking.rs:545:19 (integration-75cf6fdb041172f9+0x17b0ef)
+    #12 std::panic::catch_unwind::hd42cad7a02b609e2 /rustc/25d319a0f656ee8faa7a534da299e76e96068a40/library/std/src/panic.rs:359:14 (integration-75cf6fdb041172f9+0x17b0ef)
+    #13 std::rt::lang_start_internal::h5c3622401d53bd6b /rustc/25d319a0f656ee8faa7a534da299e76e96068a40/library/std/src/rt.rs:171:5 (integration-75cf6fdb041172f9+0x17b0ef)
+    #14 main <null> (integration-75cf6fdb041172f9+0x109909) (BuildId: 50c767185d6af5e9be3bb564fe90f03643790a67)
+
+SUMMARY: ThreadSanitizer: data race /rustc/25d319a0f656ee8faa7a534da299e76e96068a40/library/alloc/src/sync.rs:2770:18 in _$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$::drop::h116d068168ea2dc9
+==================
+ok
+test sums_even_numbers ... ok
+
+test result: ok. 18 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.35s
+
+ThreadSanitizer: reported 2 warnings
+error: test failed, to rerun pass `--test integration`
+
+Caused by:
+  process didn't exit successfully: `/home/dima/IT/study/rust/rust_blockchain_yandex_practicum/broken-app/broken-app/target/debug/deps/integration-75cf6fdb041172f9 --test-threads=1` (exit status: 66)
+note: test exited abnormally; to see the full output pass --no-capture to the harness.

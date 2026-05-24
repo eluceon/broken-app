@@ -14,3 +14,7 @@ debug = 1
 [[bench]]
 name = "baseline"
 harness = false
+
+[[bench]]
+name = "criterion"
+harness = false
