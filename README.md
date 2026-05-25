@@ -78,3 +78,5 @@
 | Criterion (fib) | 5.83 мс | 16.9 нс |
 | Criterion (dedup) | 9.67 мс | 104.5 мкс |
 | Perf (семплы) | 7K (fib 73.7%) | 43 |
+
+Подробные артефакты — см. [`artifacts/`](artifacts/).
